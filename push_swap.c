@@ -3,32 +3,28 @@
 
 int	main(int argc, char **argv)
 {
-	int	stack1[argc - 1];
-	int	stack2[argc - 1];
-	int	size1;
-	int	size2;
-	int i = 0;
+	t_stack	*stack1;
+	t_stack *stack2;
+	t_stack *tmp;
 
-	if (argc < 3)
+	stack2 = NULL;
+	if (argc < 2)
 	{
 		write(1, "NOPE.. try again...", 19);
 		return (0);
 	}
-	size1 = argc - 1;
-	size2 = 0;
-	ft_parser(stack1, argv);
-	ft_null(stack2, argc - 1);
-	while (i < (argc - 1))
+	if (!ft_parser(argv, &stack1, argc - 1))
+		return (0);
+	tmp = stack1;
+	while (tmp->next)
 	{
-		if (i < size1)
-			printf("| %d |   ", stack1[i]);
-		else
-			printf("| - |   ");
-		if (i < size2)
-			printf("| %d |\n", stack2[i]);
-		else
-			printf("| - |\n");
-		i++;
+		printf("| %d |\n", tmp->number);
+		tmp = tmp->next;
 	}
+	printf("| %d |\n\n", tmp->number);
+	if (ft_checksort(&stack1))
+		printf("stack sorted");
+	else
+		printf("stack not sorted");
 	return (0);
 }

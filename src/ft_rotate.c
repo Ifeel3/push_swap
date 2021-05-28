@@ -1,48 +1,18 @@
 #include "../push_swap.h"
 
-void	ft_rotate(int *stack, int *size)
+void	ft_rotate(t_stack **head)
 {
-	int	tmp;
-	int	i;
+	t_stack	*tmp;
+	t_stack	*tmpcount;
 
-	tmp = stack[0];
-	i = 0;
-	while (i < (*size) - 1)
+	if ((*head)->next)
 	{
-		stack[i] = stack[i + 1];
-		i++;
+		tmp = *head;
+		*head = (*head)->next;
+		tmp->next = NULL;
+		tmpcount = *head;
+		while (tmpcount->next)
+			tmpcount = tmpcount->next;
+		tmpcount->next = tmp;
 	}
-	stack[(*size) - 1] = tmp;
-}
-
-void	ra(int *stacka, int *sizea)
-{
-	if ((*sizea) > 0)
-	{
-		ft_rotate(stacka, sizea);
-		write(1, "ra\n", 3);
-	}
-}
-
-void	rb(int *stackb, int *sizeb)
-{
-	if ((*sizeb) > 0)
-	{
-		ft_rotate(stackb, sizeb);
-		write(1, "rb\n", 3);
-	}
-}
-
-void	rr(int *stacka, int *sizea, int *stackb, int *sizeb)
-{
-	if ((*sizea) > 0 && (*sizeb) > 0)
-	{
-		ft_rotate(stacka, sizea);
-		ft_rotate(stackb, sizeb);
-		write(1, "rr\n", 3);
-	}
-	else if ((*sizea) > 0 && (*sizeb) <= 0)
-		ra(stacka, sizea);
-	else if ((*sizea) <= 0 && (*sizeb) > 0)
-		rb(stackb, sizeb);
 }

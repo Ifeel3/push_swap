@@ -1,30 +1,21 @@
-void	ft_parser(int *stack, char **argv)
+#include "../push_swap.h"
+
+int	ft_parser(char **argv, t_stack **head, int size)
 {
 	int	i;
-	int j;
-	int tmp;
-	int minus;
 
 	i = 1;
-	j = 0;
+	if (size == 1)
+	{
+		argv = ft_split(argv[1], ' ');
+		i = 0;
+	}
 	while (argv[i])
 	{
-		tmp = 0;
-		minus = 0;
-		if (argv[i][j] == '-')
-		{
-			j++;
-			minus = 1;
-		}
-		while (argv[i][j] >= 48 && argv[i][j] <= 57)
-		{
-			tmp = (tmp * 10) + (argv[i][j] - 48);
-			j++;
-		}
-		if (minus == 1)
-			tmp = -tmp;
-		stack[i - 1] = tmp;
-		j = 0;
+		ft_addback(head, ft_atoi(argv[i]));
+		if (!head)
+			return (0);
 		i++;
 	}
+	return (1);
 }

@@ -1,12 +1,15 @@
 NAME	= push_swap
 
 SRC		= push_swap.c \
-		src/ft_push.c \
-		src/ft_revrotate.c \
-		src/ft_rotate.c \
+		src/ft_parser.c \
+		src/ft_newnumb.c \
+		src/ft_clean.c \
 		src/ft_swap.c \
-		src/ft_null.c \
-		src/ft_parser.c
+		src/ft_push.c \
+		src/ft_addback.c \
+		src/ft_rotate.c \
+		src/ft_revrotate.c \
+		src/ft_checksort.c
 
 CC		= gcc
 
@@ -16,23 +19,26 @@ HEAD	= push_swap.h
 
 NORM	= norminette
 
+OBJ = $(SRC:%.c=%.o)
+
 all: $(NAME)
 
-$(NAME):
-	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+$(NAME): $(OBJ)
+	make -C libft/
+	$(CC) $(CFLAGS) $? libft/libft.a -I. -o $@
 
 clean:
-	rm -f $(NAME)
+	make -C libft/ clean
+	rm -f $(NAME) $(OBJ)
 
 fclean: clean
+	make -C libft/ fclean
 
 re: fclean all
 
 norm:
+	make -C libft/ norm
 	$(NORM) $(HEAD)
 	$(NORM) -R CheckForbiddenSourceHeader $(SRC)
 
-test: re
-	./$(NAME) -452 1234 -234 2345 -234
-
-.PHONY: all $(NAME) re clean fclean norm test
+.PHONY: all $(NAME) re clean fclean norm

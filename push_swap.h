@@ -1,22 +1,22 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <unistd.h>
+# include <stdlib.h>
+# include "../libft/libft.h"
 
-void	ft_parser(int *stack, char **argv);
-void	ft_null(int *stack, int size);
-void	ft_swap(int *stack);
-void	ft_rotate(int *stack, int *size);
-void	ft_revrotate(int *stack, int *size);
-void	ft_push(int *dest, int *sized, int *src, int *sizes);
-void	sa(int *stack, int *size);
-void	sb(int *stack, int *size);
-void	ss(int *stacka, int *sizea, int *stackb, int *sizeb);
-void	pa(int *stacka, int *sizea, int *stackb, int *sizeb);
-void	pb(int *stacka, int *sizea, int *stackb, int *sizeb);
-void	ra(int *stacka, int *sizea);
-void	rb(int *stackb, int *sizeb);
-void	rr(int *stacka, int *sizea, int *stackb, int *sizeb);
-void	rra(int *stacka, int *sizea);
-void	rrb(int *stackb, int *sizeb);
-void	rrr(int *stacka, int *sizea, int *stackb, int *sizeb);
+typedef struct s_stack
+{
+	int				number;
+	struct s_stack	*next;
+}	t_stack;
+
+int		ft_parser(char **argv, t_stack **head, int size);
+t_stack	*ft_newnumb(int number);
+t_stack	*ft_addback(t_stack **head, int number);
+void	ft_clean(t_stack **head);
+void	ft_swap(t_stack **head);
+void	ft_push(t_stack **dst, t_stack **src);
+void	ft_rotate(t_stack **head);
+void	ft_revrotate(t_stack **head);
+int		ft_checksort(t_stack **stack);
 #endif
