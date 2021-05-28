@@ -19,4 +19,8 @@ void	ft_push(t_stack **dst, t_stack **src);
 void	ft_rotate(t_stack **head);
 void	ft_revrotate(t_stack **head);
 int		ft_checksort(t_stack **stack);
+void	ft_delonenumb(t_stack **stack, t_stack **number);
+void	ft_finddup(t_stack **stack);
+int		ft_finderr(char **argv);
+void	ft_cleanarray(char **array);
 #endif

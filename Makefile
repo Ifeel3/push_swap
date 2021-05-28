@@ -9,7 +9,11 @@ SRC		= push_swap.c \
 		src/ft_addback.c \
 		src/ft_rotate.c \
 		src/ft_revrotate.c \
-		src/ft_checksort.c
+		src/ft_checksort.c \
+		src/ft_delonenumb.c \
+		src/ft_finddup.c \
+		src/ft_finderr.c \
+		src/ft_cleanarray.c
 
 CC		= gcc
 
@@ -29,10 +33,11 @@ $(NAME): $(OBJ)
 
 clean:
 	make -C libft/ clean
-	rm -f $(NAME) $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
 	make -C libft/ fclean
+	rm -f $(NAME)
 
 re: fclean all
 

@@ -2,7 +2,9 @@
 
 int	ft_parser(char **argv, t_stack **head, int size)
 {
-	int	i;
+	int		i;
+	int		j;
+	char	**tmp;
 
 	i = 1;
 	if (size == 1)
@@ -12,10 +14,16 @@ int	ft_parser(char **argv, t_stack **head, int size)
 	}
 	while (argv[i])
 	{
-		ft_addback(head, ft_atoi(argv[i]));
-		if (!head)
-			return (0);
+		j = 0;
+		tmp = ft_split(argv[i], ' ');
+		while (tmp[j])
+		{
+			ft_addback(head, ft_atoi(tmp[j]));
+			j++;
+		}
 		i++;
+		ft_cleanarray(tmp);
+		ft_finddup(head);
 	}
 	return (1);
 }

@@ -8,12 +8,14 @@ int	main(int argc, char **argv)
 	t_stack *tmp;
 
 	stack2 = NULL;
-	if (argc < 2)
+	if (argc < 2 || ft_finderr(argv))
 	{
 		write(1, "NOPE.. try again...", 19);
 		return (0);
 	}
 	if (!ft_parser(argv, &stack1, argc - 1))
+		return (0);
+	if (stack1->next == NULL)
 		return (0);
 	tmp = stack1;
 	while (tmp->next)
@@ -26,5 +28,6 @@ int	main(int argc, char **argv)
 		printf("stack sorted");
 	else
 		printf("stack not sorted");
+	pause();
 	return (0);
 }

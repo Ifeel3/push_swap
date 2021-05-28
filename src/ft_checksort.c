@@ -15,5 +15,7 @@ int	ft_checksort(t_stack **stack)
 			i = tmp->number;
 		tmp = tmp->next;
 	}
+	if (tmp->number < i)
+		return (0);
 	return (1);
 }
