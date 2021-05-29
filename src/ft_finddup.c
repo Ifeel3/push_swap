@@ -1,6 +1,6 @@
 #include "../push_swap.h"
 
-void	ft_finddup(t_stack **stack)
+int	ft_finddup(t_stack **stack)
 {
 	t_stack	*tmpnumb;
 	t_stack	*tmpcount;
@@ -12,12 +12,13 @@ void	ft_finddup(t_stack **stack)
 		while (tmpcount->next)
 		{
 			if (tmpnumb->number == tmpcount->number)
-				ft_delonenumb(stack, &tmpcount);
+				return (1);
 			tmpcount = tmpcount->next;
 		}
 		if (tmpnumb->number == tmpcount->number)
-			ft_delonenumb(stack, &tmpcount);
+			return (1);
 		if (tmpnumb->next)
 			tmpnumb = tmpnumb->next;
 	}
+	return (0);
 }

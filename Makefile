@@ -13,7 +13,11 @@ SRC		= push_swap.c \
 		src/ft_delonenumb.c \
 		src/ft_finddup.c \
 		src/ft_finderr.c \
-		src/ft_cleanarray.c
+		src/ft_cleanarray.c \
+		src/ft_counter.c \
+		src/ft_sorter.c \
+		src/smallsorters.c \
+		src/ft_findmin.c
 
 CC		= gcc
 
@@ -23,7 +27,7 @@ HEAD	= push_swap.h
 
 NORM	= norminette
 
-OBJ = $(SRC:%.c=%.o)
+OBJ		= $(SRC:%.c=%.o)
 
 all: $(NAME)
 
@@ -46,4 +50,4 @@ norm:
 	$(NORM) $(HEAD)
 	$(NORM) -R CheckForbiddenSourceHeader $(SRC)
 
-.PHONY: all $(NAME) re clean fclean norm
+.PHONY: all $(NAME) re clean fclean norm test

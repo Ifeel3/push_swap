@@ -23,7 +23,6 @@ int	ft_parser(char **argv, t_stack **head, int size)
 		}
 		i++;
 		ft_cleanarray(tmp);
-		ft_finddup(head);
 	}
 	return (1);
 }

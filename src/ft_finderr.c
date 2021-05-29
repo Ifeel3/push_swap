@@ -12,11 +12,13 @@ int	ft_finderr(char **argv)
 		while (argv[i][j])
 		{
 			if (!ft_isdigit(argv[i][j])
-			&& argv[i][j] != ' ' && argv[i][j] != '-')
+			&& argv[i][j] != ' ' && argv[i][j] != '-' && argv[i][j] != '+')
 				return (1);
-			if (argv[i][j] == '-' && !ft_isdigit(argv[i][j + 1]))
+			if ((argv[i][j] == '+' || argv[i][j] == '-')
+			&& !ft_isdigit(argv[i][j + 1]))
 				return (1);
-			if (argv[i][j] == '-' && ft_isdigit(argv[i][j - 1]))
+			if ((argv[i][j] == '+' || argv[i][j] == '-')
+			&& ft_isdigit(argv[i][j - 1]))
 				return (1);
 			j++;
 		}
