@@ -31,4 +31,6 @@ void	ft_sortfive(t_stack **stack1, t_stack **stack2);
 void	ft_sorter(t_stack **stack1, t_stack **stack2);
 int		ft_findmin(t_stack **stack);
 int		ft_findmax(t_stack **stack);
+int		ft_checkrevsort(t_stack **stack);
+void	ft_bigsort(t_stack **stack1, t_stack **stack2);
 #endif
