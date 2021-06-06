@@ -1,11 +1,10 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 #include <stdio.h>
 
 int	main(int argc, char **argv)
 {
 	t_stack	*stack1;
-	t_stack *stack2;
-	t_stack *tmp;
+	t_stack	*stack2;
 
 	stack2 = NULL;
 	if (argc < 2 || ft_finderr(argv))
@@ -22,12 +21,6 @@ int	main(int argc, char **argv)
 	}
 	if (!ft_checksort(&stack1))
 		ft_sorter(&stack1, &stack2);
-	tmp = stack1;
-	while (tmp->next)
-	{
-		printf("| %d |\n", tmp->number);
-		tmp = tmp->next;
-	}
-	printf("| %d |\n\n", tmp->number);
+//	pause();
 	return (0);
 }

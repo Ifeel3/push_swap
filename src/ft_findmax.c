@@ -1,8 +1,8 @@
 #include "../push_swap.h"
 
-int	ft_findmax(t_stack **stack)
+t_stack	*ft_findmax(t_stack **stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 	int		i;
 
 	tmp = *stack;
@@ -15,5 +15,8 @@ int	ft_findmax(t_stack **stack)
 	}
 	if (i < tmp->number)
 		i = tmp->number;
-	return (i);
+	tmp = *stack;
+	while (i != tmp->number)
+		tmp = tmp->next;
+	return (tmp);
 }
