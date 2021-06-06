@@ -7,6 +7,8 @@
 typedef struct s_stack
 {
 	int				number;
+	int				pos;
+	int				index;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -36,4 +38,5 @@ t_stack	*ft_findmin(t_stack **stack);
 t_stack	*ft_findmax(t_stack **stack);
 int		ft_checkrevsort(t_stack **stack);
 void	ft_bigsort(t_stack **stack1, t_stack **stack2);
+void	ft_setindex(t_stack **stack);
 #endif

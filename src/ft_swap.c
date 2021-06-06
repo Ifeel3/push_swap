@@ -11,6 +11,7 @@ void	ft_swap(t_stack **head, char com)
 		tmp->next = (*head);
 		(*head) = tmp;
 	}
+	ft_setindex(head);
 	if (com == 'a')
 		write(1, "sa\n", 3);
 	else if (com == 'b')

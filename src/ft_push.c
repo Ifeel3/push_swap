@@ -14,4 +14,6 @@ void	ft_push(t_stack **dst, t_stack **src, char com)
 	write(1, "p", 1);
 	write(1, &com, 1);
 	write(1, "\n", 1);
+	ft_setindex(dst);
+	ft_setindex(src);
 }

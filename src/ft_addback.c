@@ -11,12 +11,10 @@ t_stack	*ft_addback(t_stack **head, int number)
 		tmp = *head;
 		while (tmp->next)
 			tmp = tmp->next;
-		tmp->next =new;
-		return (*head);
+		tmp->next = new;
 	}
 	else
-	{
 		*head = new;
-		return (*head);
-	}
+	ft_setindex(head);
+	return (*head);
 }

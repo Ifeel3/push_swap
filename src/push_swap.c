@@ -21,6 +21,6 @@ int	main(int argc, char **argv)
 	}
 	if (!ft_checksort(&stack1))
 		ft_sorter(&stack1, &stack2);
-//	pause();
+	pause();
 	return (0);
 }

@@ -18,6 +18,7 @@ void	ft_revrotate(t_stack **head, char com)
 		tmp->next = *head;
 		*head = tmp;
 	}
+	ft_setindex(head);
 	if (com == 'a')
 		write(1, "rra\n", 4);
 	else if (com == 'b')

@@ -15,6 +15,7 @@ void	ft_rotate(t_stack **head, char com)
 			tmpcount = tmpcount->next;
 		tmpcount->next = tmp;
 	}
+	ft_setindex(head);
 	if (com == 'a')
 		write(1, "ra\n", 3);
 	else if (com == 'b')
