@@ -4,11 +4,11 @@ extern void	error(void);
 
 static void	check_dup(t_stack **stack)
 {
-	t_stack *tmp1;
-	t_stack *tmp2;
+	t_stack	*tmp1;
+	t_stack	*tmp2;
 
 	tmp1 = *stack;
-	while(tmp1)
+	while (tmp1)
 	{
 		tmp2 = tmp1->next;
 		while (tmp2)

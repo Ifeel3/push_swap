@@ -8,5 +8,4 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	parser(argc, argv, &a);
-
 }
