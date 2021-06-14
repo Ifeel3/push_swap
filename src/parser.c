@@ -2,6 +2,25 @@
 
 extern void	error(void);
 
+static void	check_dup(t_stack **stack)
+{
+	t_stack *tmp1;
+	t_stack *tmp2;
+
+	tmp1 = *stack;
+	while(tmp1)
+	{
+		tmp2 = tmp1->next;
+		while (tmp2)
+		{
+			if (tmp1->num == tmp2->num)
+				error();
+			tmp2 = tmp2->next;
+		}
+		tmp1 = tmp1->next;
+	}
+}
+
 static void	convert_arg(char **tmp, t_stack **stack)
 {
 	int	i;
@@ -37,4 +56,5 @@ void	parser(int argc, char **argv, t_stack **stack)
 		free(tmp);
 		i++;
 	}
+	check_dup(stack);
 }
