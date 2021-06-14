@@ -33,6 +33,7 @@ static void	convert_arg(char **tmp, t_stack **stack)
 		if (res == 0 && tmp[i][0] != '0')
 			error();
 		ft_addnum(stack, res);
+		free(tmp[i]);
 		i++;
 	}
 }
