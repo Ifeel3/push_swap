@@ -2,8 +2,8 @@
 
 static void	ft_rotate(t_stack **stack)
 {
-	t_stack *tmp;
-	t_stack *count;
+	t_stack	*tmp;
+	t_stack	*count;
 
 	tmp = (*stack);
 	(*stack) = (*stack)->next;

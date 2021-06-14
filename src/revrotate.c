@@ -2,8 +2,8 @@
 
 static void	ft_revrotate(t_stack **stack)
 {
-	t_stack *tmp;
-	t_stack *count;
+	t_stack	*tmp;
+	t_stack	*count;
 
 	count = (*stack);
 	while (count->next->next)

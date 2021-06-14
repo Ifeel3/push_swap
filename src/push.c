@@ -2,7 +2,7 @@
 
 static void	ft_push(t_stack **dest, t_stack **src)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	tmp = (*src)->next;
 	(*src)->next = (*dest);

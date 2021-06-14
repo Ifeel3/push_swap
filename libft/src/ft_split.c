@@ -35,7 +35,7 @@ static void	ft_wordcopy(char **string, char const *s, char c, size_t words)
 	{
 		while (*tmpend++ == c)
 			tmpstart = tmpend;
-		while (*tmpend != c)
+		while (*tmpend != c && *tmpend != 0)
 			tmpend++;
 		string[i] = malloc(sizeof(char) * (tmpend - tmpstart) + 1);
 		if (string[i] == NULL)

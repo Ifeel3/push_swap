@@ -2,8 +2,8 @@
 
 void	ft_addnum(t_stack **stack, int number)
 {
-	t_stack *new;
-	t_stack *tmp;
+	t_stack	*new;
+	t_stack	*tmp;
 
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
