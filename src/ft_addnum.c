@@ -13,6 +13,7 @@ void	ft_addnum(t_stack **stack, int number)
 	}
 	new->next = NULL;
 	new->num = number;
+	new->pos = 0;
 	if (*stack == NULL)
 		*stack = new;
 	else

@@ -25,7 +25,7 @@ static void	ft_sort_four(t_stack **a, t_stack **b)
 	}
 }
 
-static void pushback(t_stack **a, t_stack **b)
+static void	pushback(t_stack **a, t_stack **b)
 {
 	if ((*a)->num > (*b)->num)
 		ft_pa(a, b);
