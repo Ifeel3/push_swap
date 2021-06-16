@@ -1,6 +1,6 @@
 NAME	= push_swap
 CC		= gcc
-CFLAGS	= -Wall -Werror -Wextra -I.
+#CFLAGS	= -Wall -Werror -Wextra -I.
 SRC		= $(wildcard src/*.c)
 OBJ		= $(SRC:%.c=%.o)
 

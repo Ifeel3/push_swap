@@ -12,6 +12,8 @@ static void	ft_revrotate(t_stack **stack)
 	count->next = NULL;
 	tmp->next = (*stack);
 	(*stack) = tmp;
+	ft_index(stack);
+	ft_calcact(stack);
 }
 
 void	ft_rra(t_stack **a)

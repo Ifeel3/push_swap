@@ -8,6 +8,10 @@ static void	ft_push(t_stack **dest, t_stack **src)
 	(*src)->next = (*dest);
 	(*dest) = (*src);
 	(*src) = tmp;
+	ft_index(dest);
+	ft_index(src);
+	ft_calcact(dest);
+	ft_calcact(src);
 }
 
 void	ft_pa(t_stack **a, t_stack **b)

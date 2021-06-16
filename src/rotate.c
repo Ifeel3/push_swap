@@ -12,6 +12,8 @@ static void	ft_rotate(t_stack **stack)
 		count = count->next;
 	count->next = tmp;
 	tmp->next = NULL;
+	ft_index(stack);
+	ft_calcact(stack);
 }
 
 void	ft_ra(t_stack **a)

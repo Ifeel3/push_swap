@@ -58,4 +58,6 @@ void	parser(int argc, char **argv, t_stack **stack)
 		i++;
 	}
 	check_dup(stack);
+	ft_index(stack);
+	ft_calcact(stack);
 }

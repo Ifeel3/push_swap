@@ -8,6 +8,8 @@ static void	ft_swap(t_stack **stack)
 	(*stack)->next = (*stack)->next->next;
 	tmp->next = (*stack);
 	(*stack) = tmp;
+	ft_index(stack);
+	ft_calcact(stack);
 }
 
 void	ft_sa(t_stack **a)
