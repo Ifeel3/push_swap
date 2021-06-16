@@ -28,10 +28,11 @@ static void	rotb(t_stack **stack)
 
 void	ft_bigsort(t_stack **a, t_stack **b)
 {
-	t_stack *target;
-
 	ft_setpos(a);
-	ft_firstsort(a, b);
+	if (ft_count(a) <= 100)
+		divide(a, b, 10);
+	else
+		divide(a, b, 50);
 	while (*b)
 	{
 		rotb(b);

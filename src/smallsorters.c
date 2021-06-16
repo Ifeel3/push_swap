@@ -25,12 +25,12 @@ static void	thirdpos(t_stack **stack)
 void	ft_sortthree(t_stack **stack)
 {
 	if (((*stack)->num < (*stack)->next->num)
-		&& (*stack)->num < (*stack)->next->next->num)
+		&& (*stack)->num < (*stack)->next->next->num && !ft_checksort(stack))
 		firstpos(stack);
 	else if (((*stack)->next->num < (*stack)->num)
 		&& ((*stack)->next->num < (*stack)->next->next->num))
 		secondpos(stack);
-	else
+	else if (!ft_checksort(stack))
 		thirdpos(stack);
 }
 
