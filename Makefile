@@ -4,7 +4,7 @@ CC		= gcc
 SRC		= $(wildcard src/*.c)
 OBJ		= $(SRC:%.c=%.o)
 
-.PHONY: all re clean fclean norm libft
+.PHONY: all re clean fclean norm libft test
 
 all: libft $(NAME)
 
@@ -30,3 +30,12 @@ norm:
 	make -C libft norm
 	norminette -R CheckForbiddenSourceHeader $(SRC)
 	norminette push_swap.h
+
+test10: all
+	python3 pyviz.py `ruby -e "puts (1..10).to_a.shuffle.join(' ')"`
+
+test100: all
+	python3 pyviz.py `ruby -e "puts (1..100).to_a.shuffle.join(' ')"`
+
+test500: all
+	python3 pyviz.py `ruby -e "puts (1..500).to_a.shuffle.join(' ')"`

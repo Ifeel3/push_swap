@@ -23,6 +23,8 @@ void	ft_sort_faf(t_stack **a, t_stack **b, int count);
 t_stack	*ft_findmin(t_stack **stack);
 t_stack	*ft_findmax(t_stack **stack);
 t_stack	*ft_findnextmin(t_stack **stack, int number);
+t_stack	*ft_last(t_stack **stack);
+void	ft_firstsort(t_stack **a, t_stack **b);
 void	ft_sortthree(t_stack **stack);
 void	ft_index(t_stack **stack);
 void	ft_calcact(t_stack **stack);
