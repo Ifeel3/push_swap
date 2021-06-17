@@ -1,47 +1,52 @@
 #include "../push_swap.h"
 
-static void	rotb(t_stack **stack)
+static t_stack	*findtarget(t_stack **stack)
 {
 	t_stack	*min;
 	t_stack	*max;
 
 	min = ft_findmin(stack);
 	max = ft_findmax(stack);
-	if (min->act <= max->act)
+	if (min->act + 1 < max->act)
+		return (min);
+	return (max);
+}
+
+static void	sorter(t_stack **a, t_stack **b)
+{
+	t_stack	*target;
+
+	while (*b)
 	{
-		while ((*stack)->pos != min->pos)
+		target = findtarget(b);
+		if (target->index <= ft_last(b)->index / 2)
 		{
-			if (min->index <= ft_last(stack)->index / 2)
-				ft_rb(stack);
-			else
-				ft_rrb(stack);
+			while (target->index != 1)
+				ft_rb(b);
 		}
-	}
-	else
-	{
-		if (max->index <= ft_last(stack)->index / 2)
-			ft_rb(stack);
 		else
-			ft_rrb(stack);
+		{
+			while (target->index != 1)
+				ft_rrb(b);
+		}
+		if (ft_findmin(b)->pos == (*b)->pos)
+		{
+			ft_pa(a, b);
+			ft_ra(a);
+		}
+		else
+			ft_pa(a, b);
 	}
 }
 
 void	ft_bigsort(t_stack **a, t_stack **b)
 {
 	ft_setpos(a);
-	if (ft_count(a) <= 100)
-		divide(a, b, 10);
+	if (ft_count(a) > 100)
+		divide(a, b, ft_count(a) / 15);
 	else
-		divide(a, b, 50);
-	while (*b)
-	{
-		rotb(b);
-		while ((*b)->num < (*a)->num && ft_last(a) != ft_findmax(a))
-			ft_rra(a);
-		while ((*b)->num > (*a)->num)
-			ft_ra(a);
-		ft_pa(a, b);
-	}
+		divide(a, b, ft_count(a) / 5);
+	sorter(a, b);
 	if (ft_findmin(a)->index <= ft_last(a)->index / 2)
 	{
 		while ((*a)->pos != 1)

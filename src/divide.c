@@ -1,23 +1,54 @@
 #include "../push_swap.h"
 
+static t_stack	*findtarget(t_stack **stack, int maxnum)
+{
+	t_stack	*tmp;
+	t_stack	*target;
+
+	tmp = *stack;
+	target = NULL;
+	while (tmp)
+	{
+		if (tmp->pos <= maxnum)
+			target = tmp;
+		tmp = tmp->next;
+	}
+	tmp = *stack;
+	while (tmp)
+	{
+		if (tmp->pos <= maxnum)
+			break ;
+		tmp = tmp->next;
+	}
+	if (!tmp && !target)
+		return (NULL);
+	if (tmp && tmp->act < target->act)
+		target = tmp;
+	return (target);
+}
+
 void	divide(t_stack **a, t_stack **b, int step)
 {
-	int	mid;
-	int	count;
+	t_stack	*target;
+	int		maxnum;
 
-	mid = step;
-	while (ft_count(a) != 3)
+	maxnum = step;
+	while (*a)
 	{
-		count = ft_count(a);
-		while (count)
+		target = findtarget(a, maxnum);
+		if (!target)
+			maxnum += step;
+		if (target && target->index < (ft_last(a)->index / 2))
 		{
-			if ((*a)->pos < mid && (*a)->pos < ft_findmax(a)->pos - 2)
-				ft_pb(a, b);
-			else
+			while (target->index != 1)
 				ft_ra(a);
-			count--;
+			ft_pb(a, b);
 		}
-		mid = mid + 25;
+		else if (target)
+		{
+			while (target->index != 1)
+				ft_rra(a);
+			ft_pb(a, b);
+		}
 	}
-	ft_sortthree(a);
 }

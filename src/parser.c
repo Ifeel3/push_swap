@@ -30,7 +30,7 @@ static void	convert_arg(char **tmp, t_stack **stack)
 	while (tmp[i])
 	{
 		res = ft_atoi(tmp[i]);
-		if (res == 0 && tmp[i][0] != '0')
+		if (ft_strncmp(ft_itoa(res), tmp[i], ft_strlen(tmp[i])))
 			error();
 		ft_addnum(stack, res);
 		free(tmp[i]);
@@ -45,7 +45,7 @@ void	parser(int argc, char **argv, t_stack **stack)
 
 	if (argc < 2)
 	{
-		ft_printf("Error: too few arguments...");
+		ft_printf("Error: too few arguments...\n");
 		exit(0);
 	}
 	checkerror(argv);
