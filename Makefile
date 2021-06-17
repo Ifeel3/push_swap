@@ -22,14 +22,17 @@ SRC		= src/checkerror.c \
 		src/revrotate.c \
 		src/rotate.c \
 		src/smallsorters.c \
-		src/swap.c \
+		src/swap.c
 OBJ		= $(SRC:%.c=%.o)
+
+.o: .c
+	$(CC) $(CFLAGS) $< -o $@
 
 .PHONY: all re clean fclean norm libft
 
 all: libft $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) push_swap.h
 ifndef ($?)
 	$(CC) $(OBJ) -Llibft -lft -o $@
 endif
