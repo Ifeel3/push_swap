@@ -25,15 +25,18 @@ static void	convert_arg(char **tmp, t_stack **stack)
 {
 	int	i;
 	int	res;
+    char *str;
 
 	i = 0;
 	while (tmp[i])
 	{
-		res = ft_atoi(tmp[i]);
-		if (ft_strncmp(ft_itoa(res), tmp[i], ft_strlen(tmp[i])))
+		res = ft_atoi((tmp)[i]);
+        str = ft_itoa(res);
+		if (ft_strncmp(str, tmp[i], ft_strlen(tmp[i])))
 			error();
 		ft_addnum(stack, res);
 		free(tmp[i]);
+        free(str);
 		i++;
 	}
 }
